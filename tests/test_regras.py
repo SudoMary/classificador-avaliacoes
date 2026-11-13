@@ -65,6 +65,24 @@ class TestMotivo:
     def test_nota_fiscal_que_nao_veio_nao_e_entrega_incompleta(self) -> None:
         assert _motivo("Não veio a nota fiscal") == "atendimento"
 
+    @pytest.mark.parametrize(
+        ("texto", "esperado"),
+        [
+            # Achados nos erros do conjunto de desenvolvimento.
+            ("Meu pedido n foi entregue", "nao_recebido"),
+            ("Pagaram o frete e até agora nada", "nao_recebido"),
+            ("Já passou uma semana e ainda não rece", "nao_recebido"),
+            ("Comprei 3 pares e me entregaram 2", "entrega_incompleta"),
+            ("Pedi duas caixas e chegou uma", "entrega_incompleta"),
+            ("A loja não entrega no prazo", "atraso"),
+            ("Chegou com a embalagem rasgada", "defeito_ou_avaria"),
+            ("O modelo não é igual ao da foto", "produto_errado"),
+            ("Depois de pagar, disseram que não tinha o produto", "atendimento"),
+        ],
+    )
+    def test_escrita_informal_e_texto_cortado(self, texto: str, esperado: str) -> None:
+        assert _motivo(texto) == esperado
+
     def test_sem_pista_no_texto_a_nota_decide(self) -> None:
         assert _motivo("Comprei para minha mãe", nota=5) == "elogio"
         assert _motivo("Comprei para minha mãe", nota=2) == "outro"
@@ -82,6 +100,7 @@ class TestResposta:
             ("Cancelaram e quero meu dinheiro de volta", "sim"),
             ("Ótimo, mas como faço para trocar a pilha?", "sim"),
             ("Veio errado, mas a loja trocou rapidinho", "nao"),
+            ("Cancelei e não me atenderam, vou devolver o produto", "sim"),
         ],
     )
     def test_frases_tipicas(self, texto: str, esperado: str) -> None:
