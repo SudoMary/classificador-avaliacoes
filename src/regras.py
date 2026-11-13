@@ -38,15 +38,23 @@ _PADROES: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
                 r"\bmetade\b",
                 r"\bentrega parcial\b",
                 r"\bnao (veio|vieram|chegou|chegaram) (o|a|os|as) (outr|restante|demais|segund)",
+                # "Comprei 3 e me entregaram 2", mas não "comprei 2 e chegou um dia antes".
+                r"\b(comprei|pedi|encomendei) (\d+|dois|duas|tres|quatro|cinco)\b.{0,60}"
+                r"\b(recebi|chegou|chegaram|veio|vieram|entregaram|entregue) "
+                r"(\d+|um|uma|so|apenas)\b(?! dias?\b)",
             ),
         ),
         (
             "nao_recebido",
             (
                 # "Não recebi resposta" é sobre a loja, não sobre o pedido.
-                r"\bnao (recebi|recebemos)\b(?! (nenhum |nenhuma )?(feedback|contato|resposta"
+                # "rece" sozinho cobre o texto cortado no limite de 208 caracteres.
+                r"\bnao rece(bi|bemos|bido)?\b(?! (nenhum |nenhuma )?(feedback|contato|resposta"
                 r"|retorno|e-?mail|nota|informac))",
-                r"\bnao (chegou|chegaram|foi entregue|foram entregues|entregaram)\b",
+                # "Não chegou no prazo" é atraso, e não falta de entrega.
+                r"\bnao (chegou|chegaram|foi entregue|foram entregues|entregaram)\b"
+                r"(?! (no|dentro do) prazo)",
+                r"\bate (agora|hoje|o momento) nada\b",
                 r"\b(aguardando|esperando|aguardo) (a |o |minha |meu |pela |pelo )?"
                 r"(entrega|encomenda|pedido|produto|mercadoria)",
                 r"\bnunca chegou\b",
@@ -66,6 +74,7 @@ _PADROES: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
                 r"\bnao (e )?original\b",
                 r"\bgeneric[oa]\b",
                 r"\benganos[oa]\b",
+                r"\bnao (e |era |veio )?(100% )?igual\b",
             ),
         ),
         (
@@ -76,7 +85,7 @@ _PADROES: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
                 r"\bdanificad",
                 r"\bavariad",
                 r"\bamassad",
-                r"\b(rachad|trincad|riscad|furad|estragad)",
+                r"\b(rachad|trincad|riscad|furad|estragad|rasgad)",
                 r"\bnao funciona",
                 r"\bparou de funcionar\b",
                 r"\bnao liga\b",
@@ -90,6 +99,8 @@ _PADROES: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
                 r"\b(fora|depois|alem) do prazo\b",
                 r"\bpassou do prazo\b",
                 r"\bprazo (muito )?longo\b",
+                r"\bnao (entrega|entregou|entregam|entregaram|chegou|chegaram) "
+                r"(no|dentro do) prazo\b",
             ),
         ),
         (
@@ -117,6 +128,7 @@ _PADROES: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
                 r"\bnao respond",
                 r"\batendimento\b",
                 r"\b(indisponivel|estoque)\b",
+                r"\bnao (tinha|tem|havia) (o )?produto\b",
                 r"\bcobr(ad|anca|aram)",
             ),
         ),
@@ -129,12 +141,19 @@ _ELOGIO = re.compile(
     r"|\b(no|dentro do|antes do) prazo\b|\brapid|\btudo (certo|certinho)\b"
 )
 _NEGACAO_DE_ELOGIO = re.compile(r"\bnao (recomendo|gostei|amei|indico|e (bom|boa|otim))")
+_NAO = re.compile(r"\bn\b")
+_QUE = re.compile(r"\bq\b")
 
-_PRECISAM_DE_RESPOSTA = {"nao_recebido", "entrega_incompleta", "produto_errado", "defeito_ou_avaria"}
+_PRECISAM_DE_RESPOSTA = {
+    "nao_recebido",
+    "entrega_incompleta",
+    "produto_errado",
+    "defeito_ou_avaria",
+}
 _JA_RESOLVIDO = re.compile(r"\b(trocou|trocaram|resolv(eu|eram|ido|ida)|corrigi(u|ram|do))\b")
 _PEDIDO = re.compile(
     r"\?|\b(quero|gostaria|aguardo|aguardando|preciso|o que (eu )?faco)\b"
-    r"|\b(dinheiro de volta|reembols|estorno)"
+    r"|\b(dinheiro de volta|reembols|estorno|devolv)"
     r"|\bnao (veio|recebi) (a )?nota fiscal\b"
 )
 
@@ -163,7 +182,9 @@ def _resposta(motivo: str, normal: str) -> str:
 
 
 def _normalizar(texto: str) -> str:
-    """Minúsculas, sem acento e com espaços simples."""
+    """Minúsculas, sem acento, com espaços simples e abreviações por extenso."""
     decomposto = unicodedata.normalize("NFKD", texto)
     sem_acento = "".join(c for c in decomposto if not unicodedata.combining(c))
-    return " ".join(sem_acento.casefold().split())
+    simples = " ".join(sem_acento.casefold().split())
+    # "n" e "ñ" (que vira "n" sem o til) são "não"; "q" é "que".
+    return _QUE.sub("que", _NAO.sub("nao", simples))
