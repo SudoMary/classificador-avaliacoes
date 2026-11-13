@@ -1,4 +1,4 @@
-"""As categorias de rotulagem: a fonte única para quem rotula, para a avaliação e para o prompt.
+"""As categorias de rotulagem: a fonte única para quem rotula, para as regras e para a medição.
 
 Cada avaliação recebe um motivo principal e a indicação de se a loja precisa
 responder. Quando o texto traz mais de um problema, vale o que aparece
