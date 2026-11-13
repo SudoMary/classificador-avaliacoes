@@ -1,0 +1,151 @@
+review_id,nota,titulo,texto,motivo_referencia,motivo_previsto,acertou_motivo,resposta_referencia,resposta_prevista
+a3c15f189350a6a85dacd6871925ded2,1,,Comprei as luminárias e não foi entregue,nao_recebido,nao_recebido,sim,sim,sim
+bc7faec244077785f98559ce1241fc0b,5,,"Lindo, amei.",elogio,elogio,sim,nao,nao
+780c4d9f08eab7c688809d3be0d66520,1,,O produto não chegou .,nao_recebido,nao_recebido,sim,sim,sim
+ef1746920275dfd537120937ace8a850,4,recomendo,"otimo relogio,mas gostariade saber se tem como diminuir a luminosidade?",elogio,elogio,sim,sim,sim
+3ca6f3308c5f21e0450f17460d01b57c,5,,Ótima compra.,elogio,elogio,sim,nao,nao
+779290111bf6cd10894690549ccff28a,1,,"Recebi a ligação da empresa responsável pelo envio, alegando que o item não seria entregue porque o lote era defeituoso e não tinha peça de reposição ou produto similar. Aguardo um contato da loja.",nao_recebido,defeito_ou_avaria,nao,sim,sim
+a55b2b49cc4b6fc1f3e3114458026a47,1,,Veio faltando um produto eu pedi 2 unidades e chegou somente uma.Gostaria de saber o que aconteceu com o outro porque estou pagando 2 produtos e recebi somente um?,entrega_incompleta,entrega_incompleta,sim,sim,sim
+d13b6eac039f05fb842fef49244a6b21,3,,"achei que teria espaço para guardar moedas, e quando fechada fica muito grossa.",qualidade_ruim,outro,nao,nao,nao
+873debcddd4c45b1589860ec21404923,2,,Acredito que a entrega poderia ser no dia combinado,atraso,outro,nao,nao,nao
+c8336a793da824b37c4f6ea13c24be04,1,,não rompi o lacre do produto para conferir detalhadamente,outro,outro,sim,nao,nao
+9508ccd5e5440e9149239e7f617d0b84,2,,"previsão de entrega será até 28/07, não posso opinar sobre este serviço prestado pois estamos no dia 03/07 hoje. Não recebi mais feedback do fornecedor até no momento, obrigado!",nao_recebido,nao_recebido,sim,sim,sim
+4a0bb05675071f4c7752b5cbeab9d8cf,2,,Custa muito,outro,outro,sim,nao,nao
+40bd566703d449ff8a0bf6736fc0ab5f,4,,"Embora tenha demorado a chegar, valeu super a pena! Produto como o anunciado.",atraso,atraso,sim,nao,nao
+487f8e0707bcbac24bfd63b100198726,3,,"Não fiquei satisfeita c a entrega. Disseram q houve ocorrência por nao ter ninguém em casa, o q não foi verdade. Tive q ir até o correio para retirar o produto, sendo q paguei pelo frete.",outro,elogio,nao,nao,nao
+8714a2f08e843e95c470018f61e48a49,2,,Meu produto veio com uma parte com defeito. Se trata de MDF e um lado da tampa veio quebrada.,defeito_ou_avaria,defeito_ou_avaria,sim,sim,sim
+70a8116eca10985774c366724e7c57d4,5,,"O produto chegou dentro do prazo, tudo certo e sem nenhum problema. Recomendo a todos!",elogio,elogio,sim,nao,nao
+cfa68469f3a1a93aaa6a84933913fbef,4,,Gostei do produto,elogio,elogio,sim,nao,nao
+14ebbf02445a7002f16ac37eec124a6a,2,,"faltou a almofada cocozinho, na nota consta o produto, mas o produto NÃO foi entregue",entrega_incompleta,entrega_incompleta,sim,sim,sim
+08a036e64b1b35a79f0f64dc248609f4,4,Vale a pena,"O produto tem boa qualidade e tem tamanho suficiente para um celular 6"". Recomendo.",elogio,elogio,sim,nao,nao
+f719add4b177341811da2a7e76f7cc37,5,,"Produto de ótima qualidade, ótimo acabamento e é lindíssimo, recebi antes do prazo é irei comprar a segunda peça! Está aprovado!",elogio,elogio,sim,nao,nao
+13d59f92b1b783972b14b3dad17c4ee1,2,,até agora estou esperando minha encomenda chegar,nao_recebido,nao_recebido,sim,sim,sim
+31843114e7578d47252c985710729c43,1,Não recebi o produto,"Até o momento nem recebi o produto nem mesmo o dinheiro de volta já tentei por várias vezes receber o dinheiro de volta, contudo me deparo com o problemas no site quando tento preencher o formulário.",nao_recebido,nao_recebido,sim,sim,sim
+628692cc345bbd8dbfa1f050d820cab0,2,,Não gruda muito😩,qualidade_ruim,outro,nao,nao,nao
+f4d2c6ed9bebda9d41573e30f3d629b5,1,,"O MP3 player não funciona, mesmo trocando a pilha diversas vezes. Tive que devolver.",defeito_ou_avaria,defeito_ou_avaria,sim,sim,sim
+d55591529e24aae7e3102ddce6050350,4,,"Chegou no prazo. Só não dei cinco estrelas porque a nota fiscal não foi enviado no e-mail, e a que acompanhou o produto foi uma impressão miniatura ruim",atendimento,qualidade_ruim,nao,nao,nao
+d6708efe68aaf7f7faf058f16a90def9,3,,Produto chegou dentro do prazo informado .,elogio,elogio,sim,nao,nao
+0120fbe7fc2e94e87346d531ce971358,3,Recomendo,Ainda não usei o produto.,elogio,elogio,sim,nao,nao
+e8911be02688ca335249f50e0781937c,5,,BOM ATENDIMENTO,elogio,elogio,sim,nao,nao
+6455da2ed550cf0683d7fbffb4d25b23,4,,"excelente produto, liguei um ar condicionado portátil de 12.000 BTus. Tudo OK.",elogio,elogio,sim,nao,nao
+30bc018ad6c2bfb69db767b57042f81b,5,,Gostei muito de fazer negócio com esta loja.,elogio,elogio,sim,nao,nao
+1f43711eb1dc8af9b084a10669610fc8,3,,"Comprei um kit com 4 peças, mas só entregaram duas está faltando duas, quando entregarem o restante aí eu recomendo o site",entrega_incompleta,entrega_incompleta,sim,sim,sim
+540271ca5e7e00d82d91cc3f654c38de,4,,Adorei,elogio,elogio,sim,nao,nao
+bbe7233e7bfef20d713f35b1c7dd4bc9,1,,Compre duas unidades de um produto é só chegou uma.,entrega_incompleta,entrega_incompleta,sim,sim,sim
+9eef1ee7b500fc243bd7b7f9e9ce513a,1,,"Gostaria de saber o fazer, pois a caixinha de som veio sem a bateria, na caixa diz que vem, porém não veio e não tem como ligar ela? Caixa muito pequena, o site não disponibiliza essas informações",entrega_incompleta,entrega_incompleta,sim,sim,sim
+214deaabf69eb3d26c7bae540e03d1b2,2,,Demora demasiada na entrega,atraso,atraso,sim,nao,nao
+435de8d66421e4d0e7efc7aa795abd7e,3,,éu achei hotimo,elogio,outro,nao,nao,nao
+0059582d8e0cc445fa942c5c9231d72a,4,,Produto chegou no prazo. Muito bom.,elogio,elogio,sim,nao,nao
+4313c344979e0c3ec514e3eadb56e3cb,2,,Comprei 2 mochilas de rodinhas solicitei a devoluçao de 1 ate agora nao tive resposta pra fazer a postagem pros correios sem contar que nao recebi o meu produto do cabelo o matizador,entrega_incompleta,nao_recebido,nao,sim,sim
+113ceb5f557455f791bc63e5d7dab199,4,,Mais lenta na entrega que as outras...mas recebi certo.,atraso,elogio,nao,nao,nao
+59276d849897ec99409e4142a6947cb7,2,,bom,elogio,elogio,sim,nao,nao
+1e9950e699604ecaa6de7b4748857c1e,5,,"Ainda não avaliei o produto, porém se cumprir as funções previstas durante o uso, estarei bastante satisfeito com a compra.",outro,elogio,nao,nao,nao
+2b693aaec6162f0f52fe4132e25af83c,1,,"Recebi o protetor de celular maior que a tela, ainda não recebi a capa protetora",entrega_incompleta,nao_recebido,nao,sim,sim
+007a8d7e380cb76a212d7345a3efb393,5,,Veio tudo certinho!!!,elogio,elogio,sim,nao,nao
+949cb25b2522e9e7dc4fd06c7a92445b,1,,Nao revebi ate agora,nao_recebido,outro,nao,sim,nao
+185ddd533ae43daef9e6e905f5bd0207,4,,Não veio a nota fiscal,atendimento,atendimento,sim,sim,sim
+b44aa4a8fc5d6fde7e26b1a946a095e4,5,,Compro há vários anos no site do stark e nunca tive problemas,elogio,elogio,sim,nao,nao
+337872886f4cb03eb5c29d5a4686fc7f,2,,"Gostei do produto chegou antes do prazo, mas fiquei triste pq eu tinha feito um pedido antes e foi cancelado recebo um email que tinha sido cancelado por divergências cadastrais super triste..",atendimento,atendimento,sim,nao,nao
+276196cc9638fa47dab343ec9180f900,5,,tudo conforme o combinado.,elogio,elogio,sim,nao,nao
+fbe2d06d09571b61ec2064c7ae49e275,3,Bom,"Lindo, só faltou uma caixa bonita.",qualidade_ruim,entrega_incompleta,nao,nao,sim
+86fe5f0bb89b9af6e1ecf749240a920b,3,recomendo,"eu queria dvd player e não gravador,foi um engano",outro,elogio,nao,nao,nao
+7894f8463bce34a4e5ba2c542342a208,2,,"A película chegou, mas o produto em se, poderia ser melhor.. Não sei se todas as películas em gel sao desta forma, mas mesmo seguindo o q diz o fornecedor, é inevitável a criacao de bolhas na tela!",qualidade_ruim,qualidade_ruim,sim,nao,nao
+9341eee5faf85eae346bf98ec0075ece,4,Vendedor honesto.,"Produto original, entrega no prazo.",elogio,elogio,sim,nao,nao
+558342955c78fa50cfc750d83dc5f889,5,,Muito bom gostei bastante,elogio,elogio,sim,nao,nao
+7182ff75a4d75780b33e3b90b3193880,2,,Veio com um amassado pequeno na tampa da bateria! Nao reclamei pois iriam alegar que foi mal manuseado... dificilmente iriam me repor. NAO quis comprar a briga!,defeito_ou_avaria,defeito_ou_avaria,sim,sim,sim
+94becb992b66dc6daefa064a8e8eb394,2,,Pelo que eu entendi o correio deve ter extraviado minha encomenda.,nao_recebido,nao_recebido,sim,sim,sim
+64186713b23cd11ae84fe3e656947848,2,,"O SITE VALIDA A COMPRA E DEPOIS DE TER PAGO, RECEBO A INFORMAÇÃO QUE O PRODUTO ESTÁ INDISPONÍVEL.",atendimento,atendimento,sim,sim,nao
+e87c87e0a20f545e05a7ea173e397f98,3,,Nos dias atuais não possui admitir que demore tanto uma entrega tão simples. Vamos nos agilizar gente.,atraso,atraso,sim,nao,nao
+c931b10d00040366429d6f35406a9c1a,4,,"Produto dentro do esperado. Entrega rápida, antes do prazo.",elogio,elogio,sim,nao,nao
+ea432cdee91823632a8df17ce1572506,5,Ótimo,"Demora alguns dias, para ""fazer efeito"". Mas funciona.",elogio,atraso,nao,nao,nao
+962c502f0c52e65021282cd0a6931a51,4,Gostei,"Ótimo produto, recomendo",elogio,elogio,sim,nao,nao
+d9901212aae28834ffee09555b4b1b6d,1,,Adquiri produto original e recebi genérico. Impressora da HP não aceita. Já solicitei devolução do dinheiro e não obtive resposta.,produto_errado,produto_errado,sim,sim,sim
+a48da15d6d538d78c6d7a54cdec219eb,1,,"Comprei duas luminárias iguais. Chegou uma caixa grande contendo somente uma luminária, a NF descrevendo 2 luminárias e o status de entrega como se tivesse entregado. Um trabalho danado resolver.",entrega_incompleta,entrega_incompleta,sim,sim,sim
+684a6e2d66a2bb659841465b0f8ed5db,4,Boa,Valeu,elogio,elogio,sim,nao,nao
+159d39740cb252eefeb5ac83fb53cce8,3,,Entregue no prazo!,elogio,elogio,sim,nao,nao
+3fd41116df95d1c63b414923e25602c2,4,,"Recebi dentro do prazo. Mas, achei o prazo muito longo",atraso,atraso,sim,nao,nao
+6462f6fb66846e9ba076c54e6f6219fb,2,Entrega sem informações,"Apesar dos produtos da loja serem de bom custo, o tempo da entrega e a falta de informações para o cliente sobre o andamento do pedido, deixa muito a desejar. Infelizmente não recomendo a terceiros.",atraso,outro,nao,nao,nao
+a8773267140c0e39e64cc0ead5703162,4,,"Muito bom Chegou bem antes do prazo,",elogio,elogio,sim,nao,nao
+95a31582487005fcc1cf30907d86454e,2,,"Sempre gostei de comprar nas lannister, mas essa entrega deixou a desejar.",outro,elogio,nao,nao,nao
+7a65dcba40c923c720890a889ffd0587,5,,Chegou bem antes do prazo estipulado,elogio,elogio,sim,nao,nao
+1be7abec78de0415c5f012d98f20aefb,4,,Tudo ok,elogio,elogio,sim,nao,nao
+d1950ebb57352ea39897dbb1817caa93,1,,"Preciso da cadeira com urgência, pessoa com deficiência .",nao_recebido,outro,nao,sim,sim
+b35041292c711e10c0589a676b4c88d6,3,,Recebi meu produto porem com certo atraso.,atraso,atraso,sim,nao,nao
+e971b0bf37a4667c286df9b958b9e274,5,Entrega muito rápida,"Excelente produto, com uma entrega surpreendente. Recomendo a loja a todos.",elogio,elogio,sim,nao,nao
+65cbca80d9399a823da58ce07ab2357c,2,,Não recomendo,outro,outro,sim,nao,nao
+12ae869404147668d18950fa512fac18,5,,"Bom produto, ótima loja. Tudo certo.",elogio,elogio,sim,nao,nao
+75c5e2ff39d3b3511774c552605a1647,4,,Produto entrega no prazo ainda não utizei a mercadoria mas estou satisfeito,elogio,elogio,sim,nao,nao
+e4e5e29e921767be10954aa43bb83d59,2,,Estou aguardando minha mercadoria. Não recebi nenhum contato sobre o atraso na entrega minha mercadoria,nao_recebido,nao_recebido,sim,sim,sim
+eee0ea5fbdb1b7288c15c72b6aec6c48,4,,Otimo produto,elogio,elogio,sim,nao,nao
+cce96d3d6c37595486b2cfa7da4decd0,5,,excelente trabalho,elogio,elogio,sim,nao,nao
+6f233dbfbb701b1277c83c540bb04022,3,,BOA COMPRA.,elogio,elogio,sim,nao,nao
+c1dcdf29dff5d96334085f49670bd6c9,4,,"Não houveram as comunicações iniciais de andamento da compra/entrega do produto por e-email, como houveram em compras anteriores. Houveram comunicações a partir da emissão da nota fiscal.",atendimento,atendimento,sim,nao,nao
+b3e854854add4788c0cd462cb72801d9,3,,na foto a impressão que o pincel de pó compacto era mais volumoso.,qualidade_ruim,outro,nao,nao,nao
+505226320f176d851722525dfca378be,1,,"Olá, Estou aguardando a entrega do meu produto.",nao_recebido,nao_recebido,sim,sim,sim
+4b2eb5e9ba5bbad756768746ce334ea8,1,,Não chegou oque comprei ainda estou esperando espero que não demore,nao_recebido,nao_recebido,sim,sim,sim
+7abb441fe3ad11dfe7871dd302b74031,3,,Produto de baixa qualidade. Esperava mais,qualidade_ruim,qualidade_ruim,sim,nao,nao
+0f2eb3147913cf5663026b8c4ae74a74,5,,Eu amei minha toalha muito boa,elogio,elogio,sim,nao,nao
+3dea48910b417ac1c31bce4fe11eb4ba,3,,Recebi o produto errado. Por sorte a empresa fica na minha cidade e foi possível corrigir o erro rapidamente.,produto_errado,produto_errado,sim,nao,sim
+b0c07f7491a102daf3c65a20f352c9fd,5,,"O produto chegou corretamente, do jeito que encomendei.",elogio,elogio,sim,nao,nao
+48d11bf3ae64fd9629f1f3bcafccf012,1,,. O produto nao vem na embalagem origiaal e simplismente foi colocado uma gota de uma base qualquer em um tubinho de plastico que nao é a original simplesmente anuncio verdadeiramente enganacao.,produto_errado,outro,nao,sim,nao
+df6569f5d9431b840e47d414904fa857,1,,Comprei 2 frascos da maca e só chegou 1. Paguei por dois frascos e o frete também por dois. Espero que ela situação seja resolvida.,entrega_incompleta,entrega_incompleta,sim,sim,nao
+2708b1adb1f115fa8bc46c09adc07b3d,1,,"Estou aguardando entrega do uns 2 meses, ainda me envia email perguntado o recebimento, caso nos nao respondemos , sera considerado entregue.",nao_recebido,nao_recebido,sim,sim,sim
+2e7d87a1ee58927a51926e796e476ace,1,trocaram a serie da bonec,Olá boa tarde n veio a boneca serie 2 e sim a serie 3,produto_errado,elogio,nao,sim,nao
+b96fa76fbf37ae6e958cd079e2631076,3,,"Só recebi a cortina, as prateleiras ainda não.",entrega_incompleta,entrega_incompleta,sim,sim,sim
+0d76ccc8cc51f57eed2e4ef9d8e46a57,2,,"O bebê conforto chegou,porém a Base não chegou.",entrega_incompleta,nao_recebido,nao,sim,sim
+8c6160c321dc4e796a5c626747c8dca3,3,,"cabo de conexão é curto.Só com extensão para usar. E a tomada vermelha (220w) está invertida. Para ligar a lavadora, o fio dela encosta na parte superior do transformador, e aquece....perigoso.",defeito_ou_avaria,outro,nao,sim,nao
+38c90d40db5d438662081f87a0800693,4,Ótimo atendimento,Estão de parabéns,elogio,elogio,sim,nao,nao
+25ac3d8476998e0f85f77ee6fffaebc1,2,,"Aparelho não funciona direito, é ilusão.",defeito_ou_avaria,defeito_ou_avaria,sim,sim,sim
+3bdf316c345d73f1d4b1f26d6ce9ce33,1,Não recebi corretamente,"Realizei a compra na quantidade de 02, porém recebi apenas 01 e na nota fiscal a quantidade é de 02. Oque eu faço ?",entrega_incompleta,entrega_incompleta,sim,sim,sim
+11e5e3a223de22712cfd6141cffb4d05,5,*****,"satisfeita com produto eu já conhecia quando vi baratheon por esse valor corri comprar ,recomendo a todas mulheres , o perfume é suave, bom é bem de meu gosto, permanece no corpo por bom tempo, espet",elogio,elogio,sim,nao,nao
+f67e51de7cb2234e049746605fac5e45,4,recomendo,otimo produto,elogio,elogio,sim,nao,nao
+ef30e7aa8922f0849f725b088e0d1ce0,3,,"Ainda aguardo posicionamento sobre o produto, pois o mesmo encontra-se sob o status ""Aguardando nota fiscal"" desde o dia 09/02, e sua entrega estava prevista para 23/02.",nao_recebido,atendimento,nao,sim,sim
+65fdf805ab0f482008c713eeae6a065f,3,,A caixa danificada colada com fita a apresentação do produto não ficou boa,defeito_ou_avaria,defeito_ou_avaria,sim,nao,sim
+59dd73fb54e89782218e4bba360b3a04,3,,compro sempre,elogio,outro,nao,nao,nao
+1bd777419b840aae94d9115bd6ef9ef4,1,,"Comprei dois produtos ao mesmo tempo e só recebi um, o mesmo fornecedor, na mesma loja .",entrega_incompleta,entrega_incompleta,sim,sim,sim
+a3e66bb18241cbbb7c5453f3333e043e,5,,OTIMO,elogio,elogio,sim,nao,nao
+e9decc182db01f37f414941a5b2ccf5a,2,,Produto de muito baixa qualidade,qualidade_ruim,qualidade_ruim,sim,nao,nao
+08f0251cfd3f79a3a41b0cd148f5700b,1,,Tive que receber o produto ... Pois não acataram o meu cancelamento feito antes da emissão da nota.... Então vou pensar duas vezes agora antes de comprar pelo site,atendimento,atendimento,sim,nao,nao
+ccb63d6e612c2ce6914bd0b1095b701c,2,,Apesar da na descrição do produto dizer que é compatível a capa não serviu corretamente no tab E 7.0 T113. Ficou torta e não para em pé. Acabei não trocando porque meu filho a quis mesmo assim.,produto_errado,outro,nao,nao,nao
+4e66d26de75a87fd82f0a26470046c62,4,,Recebi o produto e esta funcionado já é um bom resultado levando em consideração que comprei o mesmo produto por outra loja e não funcionou. porem ouve um grande atraso na entrega por parte dos corre,atraso,atraso,sim,nao,nao
+2dedb5a5648eda6d92af0f8b7725fb45,4,,Fiz um pedido com dois itens: um álbum + um conjunto de folhas ( para cartas pokémon) avulsa. Só recebi o álbum.,entrega_incompleta,entrega_incompleta,sim,sim,sim
+9b5d97aab1ca23bcdb2bd90db2c11f37,1,,Meu produto q comprei junto com este ñ chegou,entrega_incompleta,nao_recebido,nao,sim,sim
+f36417fa8dba0747ae9d439e599f5b47,3,,"Ainda não consegui montar a cadeira, estou aguardando conseguir alguém para montar. Fora isso, está tudo certo, o produto chegou no prazo.",elogio,elogio,sim,nao,sim
+0439a8dd4e0f915bb1b4e27b82f1cde6,5,,Ótima loja para se comprar.,elogio,elogio,sim,nao,nao
+f6b9c6ba22f882f9103cf8c24d941499,5,,"Adorei o produto pena que chegou um pouco atrasada , mas recomendo a loja",atraso,atraso,sim,nao,nao
+dc2e572b990684eb92a840b3f79eecd5,3,,Recomendo otimo vendedor,elogio,elogio,sim,nao,nao
+821d799ffb49557b11f3ce0d3e39d467,2,,Fiz uma.compra de dois porém os dois tem o mesmo código e só veio um comprei uma colcha que chegou certinho mas não veio a saia da cama box,entrega_incompleta,entrega_incompleta,sim,sim,sim
+dbcaf751a324de061603cdc8b076ab86,5,10,Excelente adorei perfeito muito bom gostei muito obrigado ??,elogio,elogio,sim,nao,sim
+b8e8457cd35586d847118adb483aaf38,3,,Se o produto tá dentro do prazo de entrega não precisava a empresa informar que o teve problema com o correios. É resolver o problema dentro do prazo sem precisar preocupar o cliente.,atendimento,elogio,nao,nao,nao
+a569a3d646f77e85cad6e76dfffc37d6,2,,A entrega veio faltando um dos produtos. Só foi entregue um produto de 2.,entrega_incompleta,entrega_incompleta,sim,sim,sim
+d1bdc46675264bf144d8babd4e336e78,5,Recomendoo,"Muito boa a loja, entrega antes do prazo.",elogio,elogio,sim,nao,nao
+8ca2050d8d7b1b4c654353b4a7caafc9,5,,"Produto lindissimo, adorei.",elogio,elogio,sim,nao,nao
+9828935505d2a858580d91fc3311c565,2,,"Sr. Diretor| vieram apenas 2 unidades de luminária de cone pendente na cor amarelo, uma cx. com 10 lâmpadas led de 10 wats. FALTANDO UMA LUMINÁRIA PENDENTE DE COR BRANCA COM ABORDA DE COR AMARELO",entrega_incompleta,entrega_incompleta,sim,sim,sim
+2e6818de484079f7e138c9bcc1936090,3,,Entrega sem problemas.,elogio,outro,nao,nao,nao
+f0adde0530cf39af28b8c82fc950c9fd,1,Entrega parcial do pedido,"Comprei 2 HDs de 1TB ssd, porém só foi entregue uma unidade ate o momento. Aguardando um retorno com urgência.",entrega_incompleta,entrega_incompleta,sim,sim,sim
+7b50bcf02eb72d094d86d8b036447f8d,3,Satisfeita,"Produto entregue dentro do prazo, aliás bem antes da data final prevista.",elogio,elogio,sim,nao,nao
+78235d3998269f061b845728729bc529,4,Recomendo.,"Bom Vendedor, o produto chegou na dada e muito bem armazenado.",elogio,elogio,sim,nao,nao
+9483978cc41df66e7060cadce4051ea9,3,,Ok!,elogio,elogio,sim,nao,nao
+a99398265d51c04bb88a0085837f0bb7,2,,Foi realizada a compra porém ao verificar o detalhamento da encomenda o produto não tinha em estoque.,atendimento,atendimento,sim,sim,nao
+d845fb540c8a0e4695a46d51efc13b85,3,bom,"ficou faltando o das dez toalhas..a de cinco foi entregue..estou aguardando retorno,,",entrega_incompleta,entrega_incompleta,sim,sim,sim
+177f6dcb360dcc92569d88f5dd9a4b1f,1,05,Não goste da qualidade do produto .Por ser embalado de forma inadequada a tinta soltou .,defeito_ou_avaria,outro,nao,sim,nao
+dec0b99187b9165d7d0b805085598c73,4,Gostei,Gostei do produto Boa aparência,elogio,elogio,sim,nao,nao
+4842a7318c7bfbb4955a26cee7075c5b,2,,"Foi entregue bem antes do prazo,mas não foi o que eu esperava.",qualidade_ruim,qualidade_ruim,sim,nao,nao
+d885e62048b8fb6c6d2745aa92dfefff,4,,Tudo certo,elogio,elogio,sim,nao,nao
+1d594d66e5130cee09042d7179bc2525,5,,Muy hermosa.,elogio,elogio,sim,nao,nao
+6119239947b3d59054c652d0e37717fc,1,Produto errado,"Não recebi o livro Introdução à Física do Estado Sólido- Ivan S. Oliveira; Vitor de Jesus não chegou , perdido trocado.Veio outra coisa. . Peço que envia o meu livro que comprei da empresa targaryen",produto_errado,nao_recebido,nao,sim,sim
+d3e7e4f58b167de9e1ea2120899024bb,5,,"CHEGOU BEM ANTES DO ESPERADO E RECEBI OS PRODUTOS QUE COMPREI MESMO, EXCELENTE E VOLTAREI A COMPRAR",elogio,elogio,sim,nao,nao
+38b68a768c198f1b1f0a0a4a6444aef5,3,Função controle,Algumas funções do controle não funciona ; porém as funções básicas está ok,defeito_ou_avaria,defeito_ou_avaria,sim,sim,sim
+5beb9901b34aedf9d008f16f3e10ecd5,1,,Recebi apenas metade dos produtos e não consigo contato com vocês!!!,entrega_incompleta,entrega_incompleta,sim,sim,sim
+a36e3df6225b4cb8f86b7bd7f1a68df6,4,,Excelente mercadoria. MT bem embalado.,elogio,elogio,sim,nao,nao
+2acd79cccad2ce0191e4511c8e9f5217,5,,Gostei muito,elogio,elogio,sim,nao,nao
+a62a003390fcdcaf2eaa2faa524ab517,1,Falta de acompanhamento,Maior controle de estoque.... colocar l produto como indisponível antes do cliente comprar para q não tenhamos todo esse transtorno no cancelamento.,atendimento,atendimento,sim,nao,nao
+18215615f60e6771c00faaaa1ade4cea,2,Compra,Um demora pra entrega,atraso,atraso,sim,nao,nao
+95e866bf806d004c73a04655936dac8c,3,,Falha na última entrega,outro,outro,sim,nao,nao
+3e61eeb57f9e43e0d9174bc39a2ffdf0,4,,"gostei muito,melhor do que eu imaginavam.",elogio,elogio,sim,nao,nao
+b925c9617085c295c36e2632fe5e8421,1,,Estou aguardando contato do stark pois comprei 4 produtos e só recebi 3,entrega_incompleta,entrega_incompleta,sim,sim,sim
+4fad62c70a959a91be9c95a8311e8b82,5,Super recomendo,"Atedimento top, Eu confio, já comprei diversas vezes, e nunca tive nenhum problema!",elogio,elogio,sim,nao,nao
+0ed78248b6048dc17368e39be14a90a6,5,,Produto enviado com muito carinho e atenção !!! Adorei.,elogio,elogio,sim,nao,nao
+2fcef827bfa0048a2bd8df5ef991dfa7,2,,"RECEBI APENAS UM DOS PRODUTOS,RELÓGIO DE PEROLA.MAS O OUTRO RELÓGIO DE LED,NEM SINAL DELE.NO ENTANTO,FOI DADO COMO ENTREGUE.COMO PODE?A EMBALAGEM SÓ VEIO O RELÓGIO DE PÉROLA E JÁ USEI.(?)",entrega_incompleta,entrega_incompleta,sim,sim,sim
+6cbad84826957b2f2c75e73ee9d9dfc6,4,,Recomendo,elogio,elogio,sim,nao,nao
+9380a32c102d74ac355abcad4c347774,3,bom,pensava que os anzóis eram maiores mas ta bom !!,qualidade_ruim,elogio,nao,nao,nao

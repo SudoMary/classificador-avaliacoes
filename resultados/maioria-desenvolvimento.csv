@@ -1,0 +1,51 @@
+review_id,nota,titulo,texto,motivo_referencia,motivo_previsto,acertou_motivo,resposta_referencia,resposta_prevista
+804d2ef4fe65de2903187b80ebfd1a88,5,,"O produto chegou antes do prazo, é perfeita! Amei",elogio,elogio,sim,nao,nao
+0abd0d2a07b4b863447b881a36daea17,2,,"Ainda não recebi o meu produto, e já passaram 2 dias depois do prazo previsto e não recebi nenhum feedback da empresa",nao_recebido,elogio,nao,sim,nao
+24b2da647f91fbedccd5a733434c8504,4,Entrega perfeita,Recebemos mas ainda Não testamos o produto . Amanhã sábado o faremos,elogio,elogio,sim,nao,nao
+103971ee4369e09b85a09012129cd3ed,5,,Muito bom.,elogio,elogio,sim,nao,nao
+242111cdd392f2dfbcf3453b5cc83b3c,1,,Produto n foi entregue e consta q recebi,nao_recebido,elogio,nao,sim,nao
+a0edb27d694b5d28f8027325e3b86db5,1,,Uma palhaçada. Nunca mais compro nessa loja,outro,elogio,nao,nao,nao
+579d9cc52cad5a36236863822e5b8237,2,inconclusiva,"Não recebi ainda os produtos por incompetência dos correios, não tem como avaliar da maneira que vocês pediram. Acho que vocês deveriam mudar a pesquisa. Tipo: se não, Porque?",nao_recebido,elogio,nao,sim,nao
+5ab27d594fae9a3120116613cec029bd,5,SUPER RECOMENDO,"MUITO BOM O PRODUTO, RECOMENDO.",elogio,elogio,sim,nao,nao
+a8758132a033399e0d26de3cc71b068b,3,,"onde eu moro os Correios sempre fala que zona de risco,isso atrapalha muito a entrega de qq produto. o prazo era pro dia 27/12,se não fosse por isso tinha chegado bem antes.",atraso,elogio,nao,nao,nao
+5acace0210200a4e5b50591335a88de8,3,,"O tamanho do produto é muito pequeno, e não havia especificação das medidas, o que me fez crer que seria do tamanho padrão.",qualidade_ruim,elogio,nao,nao,nao
+41b9e3b2289fe919558e1a19c4b453da,5,,Eu havia feito um comunicado q não tinha recebido mas houve um mal entendido . Correu tudo bem Obrigada,elogio,elogio,sim,nao,nao
+bb5d14949dffa5d799c06cbda1e33f35,1,,Infelizmente não recebi o produto. Fui contactada pela loja faz quase 10 dias e nem assim consegui receber a cadeira. Que chato..,nao_recebido,elogio,nao,sim,nao
+a2d78783d8284b1ecadb3b68e18854d2,2,,"produto de péssima qualidade. antes mesmo de utilizar o skate já estava descolando o adesivo. os protetores descosturados com facilidade. Nao gostei e nao recomendo este produto,",qualidade_ruim,elogio,nao,nao,nao
+990c9c49d59d068065ec4937f5a928ae,4,Bom,Chegou dentro do prazo e bem embalada tudo certo,elogio,elogio,sim,nao,nao
+8a3dcc75087382342bd248c608d098fb,1,,"Infelizmente, o produto veio errado. Pedi chocolate e veio chocolate amargo. Mas o produto é excelente.",produto_errado,elogio,nao,sim,nao
+f7bf9668c7a28d4c3243e6992d0f4dfb,5,,produto entregue dentro do prazo correto,elogio,elogio,sim,nao,nao
+85e2b35ed6cc8454b7467c0409b0f007,1,,A mercadoria Aida não chegou,nao_recebido,elogio,nao,sim,nao
+f4674c209a8949926c9be1f948aab098,3,,Apesar de ter recebido o produto em tempo hábil irei devolvê-lo por conta de um cancelamento que solicitei e não fui atendida.,atendimento,elogio,nao,sim,nao
+c22a0cb845e9c2a01e116b7dd9d8f5e9,5,,atendeu o procurado preço e entrega,elogio,elogio,sim,nao,nao
+4b49719c8a200003f700d3d986ea1a19,4,,"Mas um pouco ,travando...pelo valor ta Boa.",qualidade_ruim,elogio,nao,nao,nao
+592a13edcbe5e867234c2157153c08d3,4,,Ainda não fiz uso do produto. Mas recebi dentro do prazo.,elogio,elogio,sim,nao,nao
+e3818dc949c870f2ef309347b4d58e40,5,,"O produto chegou em menos de uma semana, vários dias antes do previsto, e muito bem acomodado no pacote. O produto é excelente, estou muito satisfeito e voltaria a comprar com certeza.",elogio,elogio,sim,nao,nao
+4718385cd25d6f8c8d55e17c65a6ce2e,3,,Boa,elogio,elogio,sim,nao,nao
+4021641c32009e4433e9efcd96a15c39,3,,Bom,elogio,elogio,sim,nao,nao
+77ae407eedb702853a8dc9d9df151b01,1,,Um absurdo falaram que até dia 10/04 séria entregue mas até agora nada. E já está pago faz tempo meus pedidos...,nao_recebido,elogio,nao,sim,nao
+ba2cd8c6284ac136bd692a18dbc81c14,3,Remessa com valor alto,comprei 5 unidades de um mesmo utem e me foi cobrado 5 fretes. Terrivel,atendimento,elogio,nao,nao,nao
+92b283529ea2371f98f5f3d5df990887,4,Venda profissional,O serviço de entrega foi rápido e o preço sem abuso,elogio,elogio,sim,nao,nao
+b3d2200c9eb396185f6ad21709cada92,4,,Comprei recebi no prazo.muito legal essa loja!!,elogio,elogio,sim,nao,nao
+34556396ea6eeaeab0569e2fea97e0be,3,,"PRODUTO COM EMBALAGEM RASGADA, O COMBINADO ERA RECEBER E TIVE QUE IR ATÉ UMA AGENCIA DO CORREIO PARA RETIRAR DEVIDO O EMBALAGEM E AINDA PROCURAR LUGAR PARA TIRAR COPIA DE DOCUMENTO E PAGAR PELA COPIA.",defeito_ou_avaria,elogio,nao,nao,nao
+37ba0e03bccfa551344fac6502c84b0e,4,,"o atendimento da loja foi dez, somente o produto não foi o que eu esperava.",qualidade_ruim,elogio,nao,nao,nao
+858fab56a905d392dbefe077112311d7,4,Recomento,"Produto chegou antes do prazo, muito bonita. Atende minhas necessidades.",elogio,elogio,sim,nao,nao
+940564992edf93c0efb22731a3a754bc,2,,a loja e boa para compra mas ruim pra resoluções dos problemas,atendimento,elogio,nao,nao,nao
+25aa5c6f0dc303863905a0ade6791d6b,1,,"Comprei 2 cartuchos e me entregaram 1, até agora não entraram em contato após reclamação para resolver minha situação e o pior estou precisando da mercadoria e minha impressora só funciona com os 2",entrega_incompleta,elogio,nao,sim,nao
+a0c74f3f1948b2b6ad6c5b92484308e2,2,,"Bom dia!!! Não veio a nota fiscal com produto, Quero o porque??",atendimento,elogio,nao,sim,nao
+91ff927306f05ce75c5fbc5c838ccd28,3,Produto NÃO 100% igual.,"O suporte que comprei na 1ª compra gostei muito, por isso resolvi comprar mais um para dar para o meu irmão. Ocorre que no site mostrava o suporte igual ao da 1ª compra, mas quando recebi o produto,",produto_errado,elogio,nao,sim,nao
+09dc569c085c4aaa596948de44d132d6,1,Arrependimento,"Pura propaganda enganosa. Comprei um produto e me entregaram outro,estou tentando um contato e ate agora nada. Não recomendo.",produto_errado,elogio,nao,sim,nao
+a9d65ad284bb1c477d7473cd06272070,3,O produto veiocom defeito,O produto veio com defeito e atraso na entrega.,defeito_ou_avaria,elogio,nao,sim,nao
+acd3cf00b155fe49af384b283655ea4b,2,,Recebi o produto porém o que mais parece é que trata-se de uma réplica muito vagabunda. Veio em uma caixa de papelão sem manual e a fragilidade do produto demonstra não ser o verdadeiro.,produto_errado,elogio,nao,sim,nao
+de1eaa924a45133e484e2167a7aa32db,4,Recomendo,"A entrega do produto chegou bem rápido, antes do prazo... e o Pendente é muito bonito, ainda não fiz a instalação, mais acredito que vai ficar ótimo depois de instalado",elogio,elogio,sim,nao,nao
+5ac9edb91b833224c3d8794399469cc0,3,prazo dá entrega,"No dia 04/05/2018 Comprei no site das lannister com o frete um pouco maior, porém o prazo de entrega menor entre 17 e 23 dias. Pois é presente que que eu entregaria no dia 01/06/2018; ainda não rece",nao_recebido,elogio,nao,sim,nao
+08ff4b8ed0afc05e6f8d618ff187597c,2,,"nao recebi o produto, o fortalecedor de unha o mavala gostaria de saber por que",nao_recebido,elogio,nao,sim,nao
+97525815d3b4ba6e3fd742c997f8c0ab,5,,Gostei muito loja recomendável!,elogio,elogio,sim,nao,nao
+b1db86411f885467912c2992eb18e734,2,,"Nao tinha o produto e ja respondi o questionario, ficaram de devolver o valor",atendimento,elogio,nao,nao,nao
+57b4919d803a60c34856ab05f5089971,1,,Meu pedido não foi entregue De São Paulo SP foi para em Belém PA e nunca chegou aqui,nao_recebido,elogio,nao,sim,nao
+184eb8c6a56a39ce754244911977924d,4,,muito boa a loja,elogio,elogio,sim,nao,nao
+10d6ab8d2bca738ac74fcf471688d30d,2,,Bom produto,elogio,elogio,sim,nao,nao
+056671f8192da1e26ebe004bd7efd8bc,5,,O produto foi entregue muito bem embalado e chegou bem antes do prazo . Indico para todos.,elogio,elogio,sim,nao,nao
+10b1143fa11b0ff4cffe236c6850a543,2,Recusa,O produto chegou avariado e recusei a entrega,defeito_ou_avaria,elogio,nao,sim,nao
+ae1167c9a2ad01c7c5f4b73fac53b2d4,5,,Lindas,elogio,elogio,sim,nao,nao
+47dd3faedfc74a28811a47f239133122,1,,A targaryen NÃO ENTREGA NO PRAZO PREVISTO.,atraso,elogio,nao,nao,nao
