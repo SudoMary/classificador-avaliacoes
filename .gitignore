@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Dados brutos da Olist: baixados do Kaggle, não vão para o repositório
+dados/brutos/
+
+# Segredos e configuração local
+.env
+.env.*
+!.env.example
+
+# Notas locais e instruções do agente (não vão para o repositório público)
+vault/
+CLAUDE.md
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
