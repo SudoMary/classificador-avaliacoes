@@ -44,4 +44,4 @@ Para sortear de novo, baixe o [dataset da Olist no Kaggle](https://www.kaggle.co
 
 ## Dados e licença
 
-As avaliações vêm do [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), publicado sob a licença [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). O arquivo original não está neste repositório; a amostra em `dados/` é derivada dele e segue a mesma licença. Os nomes de lojas nos textos já vêm anonimizados pela Olist.
+O código está sob a licença MIT ([LICENSE](LICENSE)). As avaliações vêm do [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), publicado sob a licença [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). O arquivo original não está neste repositório; a amostra em `dados/` é derivada dele e segue a mesma licença. Os nomes de lojas nos textos já vêm anonimizados pela Olist.
