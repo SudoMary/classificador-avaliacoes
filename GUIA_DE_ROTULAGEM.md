@@ -54,4 +54,18 @@ Exemplos:
 
 ## Casos decididos durante a rotulagem
 
-(Anote aqui cada caso novo e a decisão tomada.)
+Anote aqui cada caso novo e a decisão tomada.
+
+- **Ainda não chegou, mas está dentro do prazo** → 1 Não recebido, resposta sim. O pedido está em aberto e a loja deve acompanhar.
+- **Chegou outra coisa no lugar do pedido** → 3 Produto errado, e não 1: algo chegou.
+- **Faltou uma peça que deveria vir dentro da caixa** (bateria, base, acessório) → 2 Entrega incompleta.
+- **Expectativa de tamanho ou aparência, sem dizer que o anúncio estava errado** ("pensei que era maior", "não foi o que eu esperava") → 6 Qualidade ruim. Se diz que é diferente da foto, do anúncio ou do modelo comprado antes → 3 Produto errado.
+- **Embalagem danificada com o produto inteiro** → 4 Defeito ou avaria, resposta não, a não ser que o cliente peça algo.
+- **Veio com defeito, mas o cliente diz que não vai reclamar** → 4, resposta sim: o problema continua sem solução.
+- **Problema já resolvido pela loja** ("veio errado, mas trocaram rápido") → mantém o motivo, resposta não.
+- **Nota fiscal que não veio, ou veio ilegível** → 7 Atendimento. Resposta sim se a nota faltou ou se o cliente pede algo.
+- **Produto indisponível depois de pago, ou cancelamento** → 7 Atendimento. Resposta sim, a não ser que o cliente diga que a loja já está resolvendo.
+- **Problema de entrega que não é atraso nem falta** (entregador não foi e o cliente buscou na agência) **ou reclamação genérica da entrega, sem dizer o quê** ("a entrega deixou a desejar") → 9 Outro.
+- **Erro do próprio cliente na compra** ("eu queria outro modelo, foi engano meu") → 9 Outro.
+- **Elogio com uma pergunta à loja** ("ótimo relógio, mas dá para diminuir o brilho?") → 8 Elogio, resposta sim.
+- **Frase positiva curta e neutra** ("Ok", "Tudo ok", "Chegou no prazo", "Entregue no prazo!") → 8 Elogio, mesmo com nota 3.
