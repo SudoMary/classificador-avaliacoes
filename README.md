@@ -12,7 +12,7 @@ O classificador responde, para cada avaliação, duas perguntas: **qual o motivo
 
 ## Plano
 
-1. **Conjunto de referência** *(rotulado; revisão humana em andamento)*: 200 avaliações rotuladas seguindo o [guia de rotulagem](GUIA_DE_ROTULAGEM.md). É a referência contra a qual tudo é medido. Veja abaixo quem fez os rótulos.
+1. **Conjunto de referência** *(rotulado pelo Claude; revisão humana pendente)*: 200 avaliações rotuladas seguindo o [guia de rotulagem](GUIA_DE_ROTULAGEM.md). É a referência contra a qual tudo é medido. Veja abaixo quem fez os rótulos.
 2. **Linha de base por regras** *(feita)*: palavras-chave e medição de acerto por categoria. É o número que os outros precisam superar. Resultados abaixo.
 3. **Classificador com LLM**: o Claude com saída estruturada, medido no mesmo conjunto, com custo por mil avaliações.
 4. **Modelo pequeno**: um BERT em português (BERTimbau) treinado com os rótulos do LLM em milhares de avaliações. Comparação de acerto, custo e velocidade com o LLM; modelo publicado no Hugging Face e notebook no Kaggle.
