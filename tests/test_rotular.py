@@ -14,7 +14,7 @@ import pytest
 
 from src.amostra import gravar
 from src.categorias import PRECISA_RESPOSTA
-from src.rotular import ler_rotulos, main, rotular
+from src.rotular import ler_rotulos, main, revisar, rotular
 
 AMOSTRA = [
     {"review_id": "r1", "conjunto": "teste", "nota": "2", "titulo": "", "texto": "Veio quebrado."},
@@ -145,7 +145,7 @@ class TestMain:
     ) -> None:
         monkeypatch.chdir(tmp_path)
 
-        assert main() == 1
+        assert main([]) == 1
         assert "python -m src.amostra" in capsys.readouterr().err
 
     def test_rotula_e_mostra_o_total(
@@ -155,7 +155,7 @@ class TestMain:
         gravar(AMOSTRA, Path("dados/amostra.csv"))
         monkeypatch.setattr("builtins.input", _pessoa("4", "s", "q"))
 
-        assert main() == 0
+        assert main([]) == 0
         assert "Rotuladas: 1 de 2" in capsys.readouterr().out
 
     def test_ctrl_c_para_sem_perder_o_que_foi_gravado(
@@ -173,5 +173,111 @@ class TestMain:
 
         monkeypatch.setattr("builtins.input", pessoa)
 
-        assert main() == 0
+        assert main([]) == 0
         assert "Rotuladas: 1 de 2" in capsys.readouterr().out
+
+
+def _gravar_rotulos(caminho: Path, *linhas: tuple[str, str, str, str]) -> None:
+    with caminho.open("w", encoding="utf-8", newline="") as arquivo:
+        escritor = csv.writer(arquivo)
+        escritor.writerow(["review_id", "motivo", "precisa_resposta", "autor"])
+        escritor.writerows(linhas)
+
+
+def _autores(caminho: Path) -> dict[str, str]:
+    return {review_id: rotulo["autor"] for review_id, rotulo in ler_rotulos(caminho).items()}
+
+
+class TestAutor:
+    def test_rotulo_feito_na_ferramenta_e_da_pessoa(self, tmp_path: Path) -> None:
+        caminho = tmp_path / "rotulos.csv"
+
+        _rotular(caminho, "4", "s", "q")
+
+        assert _autores(caminho) == {"r1": "pessoa"}
+
+
+class TestRevisar:
+    """Rótulos feitos pelo Claude, conferidos por uma pessoa."""
+
+    def _revisar(self, caminho: Path, *respostas: str) -> Tela:
+        tela = Tela()
+        revisar(AMOSTRA, caminho, entrada=_pessoa(*respostas), saida=tela)
+        return tela
+
+    def test_enter_confirma_e_marca_como_revisado(self, tmp_path: Path) -> None:
+        caminho = tmp_path / "rotulos.csv"
+        _gravar_rotulos(caminho, ("r1", "defeito_ou_avaria", "sim", "claude"))
+
+        tela = self._revisar(caminho, "")
+
+        assert _gravados(caminho) == [("r1", "defeito_ou_avaria", "sim")]
+        assert _autores(caminho) == {"r1": "revisado"}
+        assert "Rótulo do Claude: 4 Defeito ou avaria · responder: sim" in tela.texto
+
+    def test_corrige_o_motivo_e_a_resposta(self, tmp_path: Path) -> None:
+        caminho = tmp_path / "rotulos.csv"
+        _gravar_rotulos(caminho, ("r1", "defeito_ou_avaria", "sim", "claude"))
+
+        self._revisar(caminho, "3", "n")
+
+        assert _gravados(caminho) == [("r1", "produto_errado", "nao")]
+        assert _autores(caminho) == {"r1": "revisado"}
+
+    def test_so_passa_pelos_rotulos_do_claude(self, tmp_path: Path) -> None:
+        caminho = tmp_path / "rotulos.csv"
+        _gravar_rotulos(
+            caminho,
+            ("r1", "defeito_ou_avaria", "sim", "pessoa"),
+            ("r2", "elogio", "nao", "claude"),
+        )
+
+        tela = self._revisar(caminho, "")
+
+        assert "Veio quebrado." not in tela.texto
+        assert _autores(caminho) == {"r1": "pessoa", "r2": "revisado"}
+
+    def test_q_sai_sem_mudar_o_rotulo_atual(self, tmp_path: Path) -> None:
+        caminho = tmp_path / "rotulos.csv"
+        _gravar_rotulos(caminho, ("r1", "defeito_ou_avaria", "sim", "claude"))
+
+        self._revisar(caminho, "3", "q")
+
+        assert _gravados(caminho) == [("r1", "defeito_ou_avaria", "sim")]
+        assert _autores(caminho) == {"r1": "claude"}
+
+    def test_v_volta_a_anterior_desta_revisao(self, tmp_path: Path) -> None:
+        caminho = tmp_path / "rotulos.csv"
+        _gravar_rotulos(
+            caminho,
+            ("r1", "defeito_ou_avaria", "sim", "claude"),
+            ("r2", "elogio", "nao", "claude"),
+        )
+
+        self._revisar(caminho, "", "v", "3", "s", "")
+
+        assert _gravados(caminho) == [("r1", "produto_errado", "sim"), ("r2", "elogio", "nao")]
+
+    def test_mostra_o_progresso(self, tmp_path: Path) -> None:
+        caminho = tmp_path / "rotulos.csv"
+        _gravar_rotulos(
+            caminho,
+            ("r1", "defeito_ou_avaria", "sim", "claude"),
+            ("r2", "elogio", "nao", "claude"),
+        )
+
+        tela = self._revisar(caminho, "", "q")
+
+        assert "Revisão 1 de 2" in tela.texto
+        assert "Revisão 2 de 2" in tela.texto
+
+    def test_main_com_revisar(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+    ) -> None:
+        monkeypatch.chdir(tmp_path)
+        gravar(AMOSTRA, Path("dados/amostra.csv"))
+        _gravar_rotulos(Path("dados/rotulos.csv"), ("r1", "elogio", "nao", "claude"))
+        monkeypatch.setattr("builtins.input", _pessoa(""))
+
+        assert main(["--revisar"]) == 0
+        assert "Revisadas por uma pessoa: 1 de 1" in capsys.readouterr().out
