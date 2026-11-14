@@ -22,3 +22,6 @@ CLAUDE.md
 .idea/
 .DS_Store
 Thumbs.db
+
+# Respostas do LLM guardadas para não gastar cota de novo
+.cache/
