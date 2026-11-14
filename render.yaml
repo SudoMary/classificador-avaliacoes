@@ -1,0 +1,18 @@
+# Blueprint do Render: descreve o serviço para o Render criar sozinho.
+# No painel: New > Blueprint > este repositório. O Render pede só a chave do OpenRouter.
+services:
+  - type: web
+    name: classificador-avaliacoes
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.web:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /saude
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.10"
+      # Chave grátis do OpenRouter. É segredo: preenchida no painel, nunca aqui.
+      # Sem ela, o site funciona só com as regras.
+      - key: OPENROUTER_API_KEY
+        sync: false
