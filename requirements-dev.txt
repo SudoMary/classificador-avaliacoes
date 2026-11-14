@@ -1,2 +1,5 @@
+-r requirements.txt
 pytest>=8.3,<10.0
 ruff>=0.6,<1.0
+# O TestClient do FastAPI usa o httpx.
+httpx>=0.27,<1.0
