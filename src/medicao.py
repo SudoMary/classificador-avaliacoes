@@ -87,17 +87,17 @@ def relatorio(resultado: Resultado, *, titulo: str, notas: list[str]) -> str:
     linhas += [
         "## Motivo principal",
         "",
-        f"- Acerto: {_pct(resultado.acerto_motivo)} "
+        f"- Acerto: {por_cento(resultado.acerto_motivo)} "
         f"({resultado.acertos_motivo} de {resultado.total})",
-        f"- F1 macro: {_dec(resultado.f1_macro_motivo)}",
+        f"- F1 macro: {duas_casas(resultado.f1_macro_motivo)}",
         "",
         "| Motivo | Precisão | Revocação | F1 | Avaliações |",
         "|---|---|---|---|---|",
     ]
     for codigo, m in resultado.por_motivo.items():
         linhas.append(
-            f"| {nomes[codigo]} | {_pct(m.precisao)} | {_pct(m.revocacao)} | {_dec(m.f1)} "
-            f"| {m.suporte} |"
+            f"| {nomes[codigo]} | {por_cento(m.precisao)} | {por_cento(m.revocacao)} "
+            f"| {duas_casas(m.f1)} | {m.suporte} |"
         )
     poucas = [
         nomes[c] for c, m in resultado.por_motivo.items() if 0 < m.suporte < POUCAS_AVALIACOES
@@ -146,19 +146,19 @@ def _resposta(resultado: Resultado) -> list[str]:
     return [
         "## A loja precisa responder?",
         "",
-        f"- Acerto: {_pct(resultado.acerto_resposta)} "
+        f"- Acerto: {por_cento(resultado.acerto_resposta)} "
         f"({resultado.acertos_resposta} de {resultado.total})",
         f"- Das que o classificador mandou responder, eram mesmo para responder "
-        f"(precisão): {_pct(sim.precisao)}",
-        f"- Das que precisavam de resposta, quantas ele pegou (revocação): {_pct(sim.revocacao)}"
-        f" de {sim.suporte}",
-        f"- F1: {_dec(sim.f1)}",
+        f"(precisão): {por_cento(sim.precisao)}",
+        "- Das que precisavam de resposta, quantas ele pegou (revocação): "
+        f"{por_cento(sim.revocacao)} de {sim.suporte}",
+        f"- F1: {duas_casas(sim.f1)}",
     ]
 
 
-def _pct(valor: float) -> str:
+def por_cento(valor: float) -> str:
     return f"{valor * 100:.1f}%".replace(".", ",")
 
 
-def _dec(valor: float) -> str:
+def duas_casas(valor: float) -> str:
     return f"{valor:.2f}".replace(".", ",")
