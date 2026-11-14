@@ -17,6 +17,7 @@ import pytest
 
 from src.categorias import CODIGOS
 from src.llm import (
+    MODELO_PADRAO,
     ClassificadorLLM,
     ErroDoModelo,
     enviar_openrouter,
@@ -220,7 +221,7 @@ class TestConfiguracao:
         chave, modelo = ler_configuracao(env)
 
         assert chave == "sk-or-teste"
-        assert modelo == "google/gemma-4-31b-it:free"
+        assert modelo == MODELO_PADRAO
 
     def test_ambiente_vence_o_env_e_chave_vazia_e_none(
         self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
@@ -251,3 +252,49 @@ class TestEnviar:
 
         with pytest.raises(ErroDoModelo, match="modelo indisponível"):
             enviar_openrouter("sk-or-teste")({"model": MODELO, "messages": []})
+
+
+def _erro_http(codigo: int, corpo: str) -> urllib.error.HTTPError:
+    return urllib.error.HTTPError(
+        "https://openrouter.ai", codigo, "erro", None, io.BytesIO(corpo.encode())
+    )
+
+
+class TestSobrecarga:
+    """Modelo grátis cheio no fornecedor: tenta de novo, sem confundir com o fim da cota."""
+
+    def test_tenta_de_novo_e_segue_quando_o_fornecedor_libera(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        respostas: list[Any] = [
+            _erro_http(429, '{"error": {"metadata": {"raw": "rate-limited upstream"}}}'),
+            io.BytesIO(json.dumps(_resposta(_json((1, "elogio", "nao")))).encode()),
+        ]
+
+        def responder(*_: Any, **__: Any) -> Any:
+            resposta = respostas.pop(0)
+            if isinstance(resposta, Exception):
+                raise resposta
+            return resposta
+
+        monkeypatch.setattr("urllib.request.urlopen", responder)
+        esperas: list[float] = []
+
+        resposta = enviar_openrouter("sk-or-teste", dormir=esperas.append)({"model": MODELO})
+
+        assert interpretar(resposta, 1) == [Rotulo("elogio", "nao")]
+        assert esperas == [15.0]
+
+    def test_desiste_depois_das_tentativas_com_mensagem_clara(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        def recusar(*_: Any, **__: Any) -> Any:
+            raise _erro_http(429, '{"error": {"metadata": {"raw": "rate-limited upstream"}}}')
+
+        monkeypatch.setattr("urllib.request.urlopen", recusar)
+        esperas: list[float] = []
+
+        with pytest.raises(ErroDoModelo, match="sobrecarregado"):
+            enviar_openrouter("sk-or-teste", dormir=esperas.append)({"model": MODELO})
+
+        assert esperas == [15.0, 30.0, 60.0]
