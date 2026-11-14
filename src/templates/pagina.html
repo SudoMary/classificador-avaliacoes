@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Classificador de avaliações de clientes em português: regras por palavras-chave e um LLM grátis, lado a lado, com os resultados medidos.">
+  <title>Classificador de avaliações</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="/estatico/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="topo-interno">
+      <a class="logo" href="/">Classificador de avaliações</a>
+      <nav class="topo-nav" aria-label="Principal">
+        <a href="#resultados">Resultados</a>
+        <a href="https://github.com/SudoMary/classificador-avaliacoes">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pagina" id="conteudo">
+    <section class="intro" aria-labelledby="titulo">
+      <h1 class="titulo" id="titulo">Qual o motivo desta avaliação?</h1>
+      <p class="sub">Cole uma avaliação de cliente de loja online. As regras por palavras-chave e um LLM grátis dizem, lado a lado, o motivo principal e se a loja precisa responder.</p>
+
+      <form class="formulario" method="post" action="/" data-classificar>
+        <label for="campo-texto">Avaliação</label>
+        <textarea id="campo-texto" name="texto" rows="3" maxlength="{{ tamanho_maximo }}" required
+                  placeholder="Ex.: comprei duas e só chegou uma.">{{ texto }}</textarea>
+        <fieldset class="notas">
+          <legend>Nota em estrelas</legend>
+          {% for n in range(1, 6) %}
+          <label class="nota"><input type="radio" name="nota" value="{{ n }}" {% if n == nota %}checked{% endif %}><span>{{ n }}</span></label>
+          {% endfor %}
+        </fieldset>
+        <div class="linha">
+          <button class="botao" type="submit">Classificar</button>
+          <p class="dica" id="dica" role="status" aria-live="polite">
+            {%- if llm_ligado -%}
+            {{ "O LLM ainda responde %d vezes hoje." % restantes if restantes else "O LLM já atingiu o limite de hoje; as regras continuam." }}
+            {%- else -%}
+            Só as regras neste ambiente: o LLM está desligado.
+            {%- endif -%}
+          </p>
+        </div>
+      </form>
+
+      {% if erro %}
+      <div class="aviso" role="alert"><p>{{ erro }}</p></div>
+      {% endif %}
+
+      <div class="exemplos">
+        <p class="dica">Ou teste um exemplo:</p>
+        <div class="exemplos-lista">
+          {% for texto_exemplo, nota_exemplo in exemplos %}
+          <form method="post" action="/" data-classificar>
+            <input type="hidden" name="nota" value="{{ nota_exemplo }}">
+            <button class="exemplo" type="submit" name="texto" value="{{ texto_exemplo }}">{{ texto_exemplo }}</button>
+          </form>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    {% if regras %}
+    <section class="resultado" aria-labelledby="titulo-resultado">
+      <h2 class="bloco-titulo" id="titulo-resultado">Resultado</h2>
+      <p class="citacao">“{{ texto }}” <span>· nota {{ nota }} de 5</span></p>
+      <div class="cartoes">
+        <article class="cartao">
+          <h3>Regras por palavras-chave</h3>
+          <p class="motivo">{{ regras.nome }}</p>
+          <p class="definicao">{{ regras.definicao }}</p>
+          <p class="responder {{ 'sim' if regras.responder else 'nao' }}">{{ "Precisa de resposta da loja" if regras.responder else "Não precisa de resposta" }}</p>
+          <p class="custo">Instantâneo, sem custo.</p>
+        </article>
+        <article class="cartao">
+          <h3>LLM · <span class="mono">{{ modelo }}</span></h3>
+          {% if llm.cartao %}
+          <p class="motivo">{{ llm.cartao.nome }}</p>
+          <p class="definicao">{{ llm.cartao.definicao }}</p>
+          <p class="responder {{ 'sim' if llm.cartao.responder else 'nao' }}">{{ "Precisa de resposta da loja" if llm.cartao.responder else "Não precisa de resposta" }}</p>
+          <p class="custo">Modelo grátis do OpenRouter.</p>
+          {% else %}
+          <p class="aviso-llm">{{ llm.aviso }}</p>
+          {% endif %}
+        </article>
+      </div>
+      {% if concordam is not none %}
+      <p class="veredito {{ 'ok' if concordam else 'alerta' }}">
+        {%- if concordam -%}
+        Os dois concordam.
+        {%- else -%}
+        Discordam: compare as definições acima.
+        {%- if discordancias and discordancias.total %} No conjunto de teste, nas {{ discordancias.total }} vezes em que discordaram, o LLM acertou {{ discordancias.llm }} e as regras, {{ discordancias.regras }}.{% endif %}
+        {%- endif -%}
+      </p>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    <section class="medidos" id="resultados" aria-labelledby="titulo-medidos">
+      <h2 class="bloco-titulo" id="titulo-medidos">Como cada um se saiu</h2>
+      <p class="sub">Medido em 150 avaliações reais da Olist, 30 de cada nota, comparadas com rótulos de referência feitos pelo Claude seguindo um guia de rotulagem, ainda sem revisão humana.</p>
+      {% if medidos %}
+      <div class="tabela-rolagem">
+        <table>
+          <thead>
+            <tr><th scope="col">Classificador</th><th scope="col">Acerto do motivo</th><th scope="col">F1 macro</th><th scope="col">Acerto em "precisa responder"</th></tr>
+          </thead>
+          <tbody>
+            {% for linha in medidos %}
+            <tr>
+              <th scope="row">{{ linha.nome }}</th>
+              <td><span class="barra" aria-hidden="true"><span style="width: {{ linha.largura }}%"></span></span><span class="mono">{{ linha.acerto_motivo }}</span></td>
+              <td class="mono">{{ linha.f1_macro }}</td>
+              <td class="mono">{{ linha.acerto_resposta }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="dica">O F1 macro dá o mesmo peso a cada uma das 9 categorias: é ele que mostra que "sempre a classe mais comum" acerta 41% sem entender nada.</p>
+      {% endif %}
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-interno">
+      Avaliações do <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce">Brazilian E-Commerce Public Dataset by Olist</a> (CC BY-NC-SA 4.0).
+      <a href="https://github.com/SudoMary/classificador-avaliacoes">Código no GitHub</a>
+    </div>
+  </footer>
+  <script src="/estatico/app.js" defer></script>
+</body>
+</html>
