@@ -28,7 +28,8 @@ from .categorias import CODIGOS, MOTIVOS, PRECISA_RESPOSTA
 from .medicao import Rotulo
 
 URL = "https://openrouter.ai/api/v1/chat/completions"
-MODELO_PADRAO = "google/gemma-4-31b-it:free"
+# Em 2026-11-13, os Gemma grátis estavam sobrecarregados no fornecedor; este respondia.
+MODELO_PADRAO = "nvidia/nemotron-3.5-super-vl:free"
 POR_REQUISICAO = 15
 # O plano grátis aceita 20 requisições por minuto; 4 segundos deixa folga.
 INTERVALO_SEGUNDOS = 4.0
@@ -180,37 +181,73 @@ class ClassificadorLLM:
         self.arquivo_cache.write_text(texto, encoding="utf-8")
 
 
-def enviar_openrouter(chave: str, *, timeout: float = 120.0) -> Enviar:
-    """Função que manda um pedido ao OpenRouter e devolve a resposta em dict."""
+def enviar_openrouter(
+    chave: str,
+    *,
+    timeout: float = 120.0,
+    dormir: Callable[[float], None] = time.sleep,
+) -> Enviar:
+    """Função que manda um pedido ao OpenRouter e devolve a resposta em dict.
+
+    Modelo grátis sobrecarregado no fornecedor (a fila é dividida por todos os
+    usuários do plano grátis) é tentado de novo, com espera crescente. Esse
+    erro não desconta da cota diária; o fim da cota, sim, e para na hora.
+    """
 
     def enviar(pedido: dict[str, Any]) -> dict[str, Any]:
-        requisicao = urllib.request.Request(
-            URL,
-            data=json.dumps(pedido).encode("utf-8"),
-            headers={
-                "Authorization": f"Bearer {chave}",
-                "Content-Type": "application/json",
-                "X-Title": "classificador-avaliacoes",
-            },
-        )
-        try:
-            with urllib.request.urlopen(requisicao, timeout=timeout) as resposta:
-                corpo = json.load(resposta)
-        except urllib.error.HTTPError as erro:
-            if erro.code == 429:
-                raise ErroDoModelo(
-                    "O OpenRouter recusou por limite de uso (HTTP 429). O plano grátis dá 50 "
-                    "requisições por dia; as respostas já recebidas estão guardadas em .cache/."
-                ) from erro
-            raise ErroDoModelo(f"O OpenRouter respondeu HTTP {erro.code}.") from erro
-        except urllib.error.URLError as erro:
-            raise ErroDoModelo("Sem conexão com o OpenRouter.") from erro
-        if "error" in corpo:
-            mensagem = corpo["error"].get("message", "erro sem mensagem")
-            raise ErroDoModelo(f"O OpenRouter devolveu um erro: {mensagem}")
-        return corpo
+        for tentativa, espera in enumerate((*ESPERAS_SOBRECARGA, None), start=1):
+            try:
+                return _enviar_uma_vez(pedido, chave, timeout)
+            except _Sobrecarregado as erro:
+                if espera is None:
+                    raise ErroDoModelo(
+                        f"O modelo {pedido.get('model')} está sobrecarregado no fornecedor "
+                        f"depois de {tentativa} tentativas. Tente mais tarde ou escolha outro "
+                        "modelo grátis com --modelo."
+                    ) from erro
+                dormir(espera)
+        raise AssertionError("inalcançável")
 
     return enviar
+
+
+# Espera, em segundos, antes de cada nova tentativa quando o modelo está sobrecarregado.
+ESPERAS_SOBRECARGA = (15.0, 30.0, 60.0)
+
+
+class _Sobrecarregado(Exception):
+    """O fornecedor do modelo grátis está cheio; vale tentar de novo."""
+
+
+def _enviar_uma_vez(pedido: dict[str, Any], chave: str, timeout: float) -> dict[str, Any]:
+    requisicao = urllib.request.Request(
+        URL,
+        data=json.dumps(pedido).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {chave}",
+            "Content-Type": "application/json",
+            "X-Title": "classificador-avaliacoes",
+        },
+    )
+    try:
+        with urllib.request.urlopen(requisicao, timeout=timeout) as resposta:
+            corpo = json.load(resposta)
+    except urllib.error.HTTPError as erro:
+        detalhe = erro.read().decode("utf-8", "replace")
+        if erro.code == 429 and "upstream" in detalhe:
+            raise _Sobrecarregado(detalhe) from erro
+        if erro.code == 429:
+            raise ErroDoModelo(
+                "O OpenRouter recusou por limite de uso (HTTP 429). O plano grátis dá 50 "
+                "requisições por dia; as respostas já recebidas estão guardadas em .cache/."
+            ) from erro
+        raise ErroDoModelo(f"O OpenRouter respondeu HTTP {erro.code}.") from erro
+    except urllib.error.URLError as erro:
+        raise ErroDoModelo("Sem conexão com o OpenRouter.") from erro
+    if "error" in corpo:
+        mensagem = corpo["error"].get("message", "erro sem mensagem")
+        raise ErroDoModelo(f"O OpenRouter devolveu um erro: {mensagem}")
+    return corpo
 
 
 def _json_do_texto(texto: str) -> Any:
