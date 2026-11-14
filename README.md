@@ -1,5 +1,7 @@
 # Classificador de avaliações de clientes
 
+**No ar:** [classificador-avaliacoes.onrender.com](https://classificador-avaliacoes.onrender.com) (plano grátis: o primeiro acesso depois de um tempo parado leva cerca de 1 minuto).
+
 [![CI](https://github.com/SudoMary/classificador-avaliacoes/actions/workflows/ci.yml/badge.svg)](https://github.com/SudoMary/classificador-avaliacoes/actions/workflows/ci.yml)
 
 > Lê avaliações de clientes em português e diz o motivo de cada uma (atraso, defeito, produto errado...) e se a loja precisa responder. Tem conjunto de referência rotulado, medição com métricas por categoria, uma linha de base por regras (78,7% de acerto no teste) e um LLM grátis, via OpenRouter, que acerta 96,0%.
@@ -92,7 +94,7 @@ Cuidados ao ler:
 
 ## Publicação
 
-O site roda no Render, plano grátis, a partir do [`render.yaml`](render.yaml): no painel do Render, New → Blueprint → este repositório. A única variável a preencher é `OPENROUTER_API_KEY`; sem ela, o site funciona só com as regras. No plano grátis, o primeiro acesso depois de um tempo parado leva cerca de 1 minuto.
+O site roda no Render como Web Service do plano grátis, com a configuração descrita no [`render.yaml`](render.yaml): build com `pip install -r requirements.txt`, início com `uvicorn src.web:app --host 0.0.0.0 --port $PORT`, health check em `/saude` e as variáveis `OPENROUTER_API_KEY` e `PYTHON_VERSION` (3.12.10). Sem a chave, o site funciona só com as regras. Cada merge na `main` é publicado sozinho.
 
 ## Como rodar
 
