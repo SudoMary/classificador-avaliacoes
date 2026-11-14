@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import json
 from pathlib import Path
 
 import pytest
@@ -76,3 +77,39 @@ def test_rotulo_faltando_impede_a_medicao(pasta: Path, capsys: pytest.CaptureFix
 
     assert main(["regras"]) == 1
     assert "Falta rótulo para 1 avaliação" in capsys.readouterr().err
+
+
+def test_llm_com_modelo_falso_grava_relatorio_com_o_gasto(
+    pasta: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    pedidos: list[dict] = []
+
+    def modelo(pedido: dict) -> dict:
+        pedidos.append(pedido)
+        conteudo = json.dumps(
+            {
+                "rotulos": [
+                    {"id": 1, "motivo": "defeito_ou_avaria", "precisa_resposta": "sim"},
+                    {"id": 2, "motivo": "elogio", "precisa_resposta": "nao"},
+                ]
+            }
+        )
+        return {"choices": [{"message": {"content": conteudo}}]}
+
+    assert main(["llm", "--modelo", "modelo/teste:free"], enviar=modelo) == 0
+
+    relatorio = Path("resultados/llm-teste.md").read_text(encoding="utf-8")
+    assert relatorio.startswith("# LLM (modelo/teste:free) · conjunto de teste")
+    assert "Acerto: 100,0% (2 de 2)" in relatorio
+    assert "Requisições nesta execução: 1" in relatorio
+    assert len(pedidos) == 1
+
+
+def test_llm_sem_chave_explica_o_que_fazer(
+    pasta: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+
+    assert main(["llm"]) == 1
+    assert "OPENROUTER_API_KEY" in capsys.readouterr().err
