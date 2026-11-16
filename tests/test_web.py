@@ -63,6 +63,28 @@ class TestPagina:
         assert "78,7%" in texto
         assert "96,0%" in texto
 
+    def test_conta_a_historia_na_ordem(self, site: TestClient) -> None:
+        texto = site.get("/").text
+
+        partes = [
+            "Uma nota 1 não diz o que deu errado.",
+            'name="texto"',
+            "dos motivos certos com um LLM grátis",
+            "Acerto do motivo",
+            "Onde as regras se perdem",
+            "Quando os dois discordam, quem acerta?",
+            "Ver todos os números em tabela",
+            "Como foi medido",
+        ]
+        posicoes = [texto.index(parte) for parte in partes]
+        assert posicoes == sorted(posicoes)
+
+    def test_graficos_tem_dica_e_nome_acessivel(self, site: TestClient) -> None:
+        texto = site.get("/").text
+
+        assert 'data-dica="LLM grátis: 96,0% de acerto no motivo · F1 macro 0,95"' in texto
+        assert 'aria-label="Produto errado, 6 avaliações: F1 das regras 0,50, do LLM 1,00"' in texto
+
     def test_resultados_ausentes_nao_quebram_a_pagina(
         self, modelo: ModeloFalso, tmp_path: Path
     ) -> None:
