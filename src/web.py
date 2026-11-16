@@ -34,7 +34,7 @@ from .llm import (
     montar_pedido,
 )
 from .medicao import Rotulo
-from .pagina import EXEMPLOS, cartao, discordancias, resultados_medidos
+from .pagina import EXEMPLOS, cartao, historia
 from .regras import classificar as classificar_por_regras
 
 _PASTA = Path(__file__).resolve().parent
@@ -93,8 +93,7 @@ def criar_app(
     @asynccontextmanager
     async def ciclo_de_vida(app: FastAPI):  # type: ignore[no-untyped-def]
         # Lidos uma vez: os arquivos de resultados só mudam com um novo deploy.
-        app.state.medidos = resultados_medidos(pasta_resultados)
-        app.state.discordancias = discordancias(pasta_resultados)
+        app.state.historia = historia(pasta_resultados)
         yield
 
     app = FastAPI(
@@ -109,8 +108,7 @@ def criar_app(
     def _pagina(request: Request, status_code: int = 200, **conteudo: Any) -> Response:
         contexto = {
             "exemplos": EXEMPLOS,
-            "medidos": request.app.state.medidos,
-            "discordancias": request.app.state.discordancias,
+            "historia": request.app.state.historia,
             "modelo": modelo,
             "llm_ligado": enviar is not None,
             "restantes": limite.restantes(),
